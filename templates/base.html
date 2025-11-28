@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>IF Participa</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Início</a>
+    <a href="{{ url_for('auth_bp.login') }}">Login</a>
+    <a href="{{ url_for('auth_bp.register') }}">Cadastro</a>
+</nav>
+
+<hr>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, msg in messages %}
+      <p style="color: red;">{{ msg }}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+</body>
+</html>
