@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}Nova Sugestão{% endblock %}
+
+{% block conteudo %}
+<h2>Adicionar sugestão</h2>
+
+<form action="/sugestoes/criar" method="POST">
+    <textarea name="texto" placeholder="Digite sua sugestão..." required></textarea>
+    <br><br>
+    <button type="submit">Enviar</button>
+</form>
+{% endblock %}
