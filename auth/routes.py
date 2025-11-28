@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask_login import login_user
 from models.database import SessionLocal
 from models.users import Usuario
 
@@ -42,6 +42,8 @@ def register():
 
 
 # --- PÁGINA DE LOGIN ---
+from flask_login import login_user
+
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -61,8 +63,11 @@ def login():
             db.close()
             return redirect(url_for('auth_bp.login'))
 
+        login_user(usuario)  # ← AQUI!!!
+
         flash("Login realizado!", "success")
         db.close()
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('controllers_bp.dashboard'))
 
     return render_template('login.html')
+
