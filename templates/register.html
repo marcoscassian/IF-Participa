@@ -1,20 +1,31 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block content %}
-<h2>Cadastro</h2>
+{% block title %}Cadastrar - IF-Participa{% endblock %}
 
-<form method="POST">
-    <label>Nome:</label>
-    <input type="text" name="nome" required>
+{% block estilos %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+{% endblock %}
 
-    <label>Email:</label>
-    <input type="email" name="email" required>
+{% block conteudo %}
+<div class="auth-container">
+    <h1>Crie sua conta</h1>
+    <p class="subtitle">Participe, envie projetos e acompanhe tudo no IF.</p>
 
-    <label>Senha:</label>
-    <input type="password" name="senha" required>
+    <form action="{{ url_for('auth_bp.register') }}" method="POST" class="auth-form">
+        <label>Nome</label>
+        <input type="text" name="nome" required>
 
-    <button type="submit">Cadastrar</button>
-</form>
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-<p>Já tem conta? <a href="{{ url_for('auth_bp.login') }}">Login</a></p>
+        <label>Senha</label>
+        <input type="password" name="senha" required>
+
+        <button type="submit" class="btn-primary">Cadastrar</button>
+
+        <p class="link">Já tem conta?
+            <a href="{{ url_for('auth_bp.login') }}">Fazer login</a>
+        </p>
+    </form>
+</div>
 {% endblock %}

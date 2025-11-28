@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 10vh auto;
+    text-align: center;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+h1 {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    color: #03643B;
+}
+
+p {
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-login {
+    background: #03643B;
+}
+
+.btn-login:hover {
+    background: #024d2d;
+}
+
+.btn-register {
+    background: #008B4A;
+}
+
+.btn-register:hover {
+    background: #006f3a;
+}

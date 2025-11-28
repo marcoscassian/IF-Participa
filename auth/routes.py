@@ -63,6 +63,6 @@ def login():
 
         flash("Login realizado!", "success")
         db.close()
-        return redirect(url_for('index'))
+        return redirect(url_for('dashboard'))
 
     return render_template('login.html')
