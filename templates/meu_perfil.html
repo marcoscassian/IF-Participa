@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Meu Perfil{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{{ url_for('static', filename='perfil.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="perfil-container">
+
+    <h1>Meu Perfil</h1>
+
+    <div class="info-usuario">
+        <p>Nome: <strong>{{ usuario.nome }}</strong></p>
+        <p>Email: <strong>{{ usuario.email }}</strong></p>
+    </div>
+
+    <h2>Minhas Reclamações</h2>
+    {% if reclamacoes %}
+    <ul class="lista">
+        {% for r in reclamacoes %}
+            <li class="item">
+                <strong>{{ r.titulo }}</strong><br>
+                {{ r.descricao }}
+                <div class="acoes">
+                    <a class="editar" href="{{ url_for('controllers_bp.editar_reclamacao', id=r.id) }}">Editar</a>
+                    <a class="excluir" href="{{ url_for('controllers_bp.excluir_reclamacao', id=r.id) }}">Excluir</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p class="vazio">Nenhuma reclamação enviada.</p>
+    {% endif %}
+
+    <h2>Minhas Sugestões</h2>
+    {% if sugestoes %}
+    <ul class="lista">
+        {% for s in sugestoes %}
+            <li class="item">
+                <strong>{{ s.titulo }}</strong><br>
+                {{ s.descricao }}
+                <div class="acoes">
+                    <a class="editar" href="{{ url_for('controllers_bp.editar_sugestao', id=s.id) }}">Editar</a>
+                    <a class="excluir" href="{{ url_for('controllers_bp.excluir_sugestao', id=s.id) }}">Excluir</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p class="vazio">Nenhuma sugestão enviada.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

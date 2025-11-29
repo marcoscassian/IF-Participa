@@ -58,18 +58,13 @@ def login():
             db.close()
             return redirect(url_for('auth_bp.login'))
 
-        login_user(usuario)  # ← AQUI!!!
+        login_user(usuario)
 
         flash("Login realizado!", "success")
         db.close()
         return redirect(url_for('controllers_bp.dashboard'))
 
     return render_template('login.html')
-
-@auth_bp.route("/perfil")
-@login_required
-def perfil():
-    return render_template("perfil.html", usuario=current_user)
 
 @auth_bp.route("/logout")
 @login_required

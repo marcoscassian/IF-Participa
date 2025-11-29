@@ -1,0 +1,50 @@
+.form-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    font-family: Arial, sans-serif;
+}
+
+.form-container h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #0f6f29;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+button {
+    margin-top: 15px;
+    width: 100%;
+    background: #0f6f29;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    background: #0b5b20;
+}

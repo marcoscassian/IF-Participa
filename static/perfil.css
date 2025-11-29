@@ -1,0 +1,93 @@
+.perfil-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.perfil-container h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #0f6f29;
+}
+
+.info-usuario {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.info-usuario p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.perfil-container h2 {
+    font-size: 22px;
+    color: #0f6f29;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+    border-left: 4px solid #0f6f29;
+}
+
+.item strong {
+    font-size: 18px;
+}
+
+.acoes {
+    margin-top: 8px;
+}
+
+.acoes a {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-right: 8px;
+    transition: 0.2s;
+}
+
+.editar {
+    color: white;
+    background: #0f6f29;
+}
+
+.editar:hover {
+    background: #0b5b20;
+}
+
+.excluir {
+    color: white;
+    background: #c82333;
+}
+
+.excluir:hover {
+    background: #e63946;
+}
+
+.vazio {
+    padding: 10px;
+    background: #eee;
+    border-radius: 6px;
+    color: #666;
+}
+
