@@ -25,7 +25,7 @@ O IF Participa permite que alunos, professores e servidores enviem **reclamaçõ
 ### 1️⃣ **Clonar o repositório**
 
 ```bash
-git clone https://github.com/seu-repositorio/if-participa.git
+git clone https://github.com/marcoscassian/if-participa
 cd if-participa
 ```
 
