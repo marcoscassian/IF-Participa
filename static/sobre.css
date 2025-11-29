@@ -1,0 +1,40 @@
+.sobre-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.sobre-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0f6f29;
+}
+
+.sobre-container h2 {
+    margin-top: 25px;
+    color: #0f6f29;
+}
+
+.intro {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.equipe {
+    list-style: square;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.equipe li {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.curso {
+    margin-top: 20px;
+    font-style: italic;
+    color: #444;
+    text-align: center;
+}

@@ -20,8 +20,10 @@
 
     {% if current_user.is_authenticated %}
     <div class="nav-links">
+        <a href="{{ url_for('controllers_bp.dashboard') }}">Início</a>
+        <a href="{{ url_for('controllers_bp.sobre') }}">Sobre</a>
         <a href="{{ url_for('controllers_bp.meu_perfil') }}">Meu Perfil</a>
-        <a href="{{ url_for('auth_bp.logout') }}">Logout</a>
+        <a href="{{ url_for('auth_bp.logout') }}">Sair</a>
     </div>
     {% endif %}
 </header>

@@ -141,3 +141,8 @@ def editar_sugestao(id):
         return redirect(url_for("controllers_bp.meu_perfil"))
 
     return render_template("editar_sugestao.html", sugestao=sug)
+
+@controllers_bp.route("/sobre", methods=["GET", "POST"])
+@login_required
+def sobre():
+    return render_template("sobre.html")
