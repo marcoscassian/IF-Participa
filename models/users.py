@@ -11,5 +11,6 @@ class Usuario(Base, UserMixin):
     email = Column(String(120), unique=True, nullable=False)
     senha_hash = Column(String(200), nullable=False)
 
+    reclamacoes = relationship("Reclamacao", back_populates="autor")
     sugestoes = relationship("Sugestao", back_populates="autor")
 
