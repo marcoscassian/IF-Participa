@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Meu Perfil - IF Participa{% endblock %}
+
+{% block conteudo %}
+<h1>Meu Perfil</h1>
+
+<p><strong>Nome:</strong> {{ usuario.nome }}</p>
+<p><strong>Email:</strong> {{ usuario.email }}</p>
+{% endblock %}

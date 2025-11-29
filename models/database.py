@@ -7,6 +7,8 @@ engine = create_engine(DATABASE_URL, echo=False)
 
 SessionLocal = scoped_session(sessionmaker(bind=engine))
 
+db_session = SessionLocal
+
 Base = declarative_base()
 
 def get_db():

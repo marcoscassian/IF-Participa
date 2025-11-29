@@ -4,7 +4,49 @@
 
 {% block conteudo %}
 <div class="dashboard">
+
     <h1>Bem-vindo, {{ usuario.nome }}!</h1>
-    <p>Aqui ficará o painel do IF-Participa.</p>
+    <a href="{{ url_for('controllers_bp.enviar_sugestao') }}">Enviar Sugestão</a>
+    <a href="{{ url_for('controllers_bp.enviar_reclamacao') }}">Enviar Reclamação</a>
+    <p>Aqui estão as reclamações e sugestões enviadas pela comunidade.</p>
+
+    <hr>
+
+    <h2>Reclamações</h2>
+
+    {% if reclamacoes %}
+        <ul>
+            {% for r in reclamacoes %}
+                <li>
+                    <strong>Título:</strong> {{ r.titulo }} <br>
+                    <strong>Descrição:</strong> {{ r.descricao }} <br>
+                    <strong>Autor:</strong> {{ r.autor.nome if r.autor else "Anônimo" }}
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma reclamação enviada ainda.</p>
+    {% endif %}
+
+    <br>
+
+    <h2>Sugestões</h2>
+
+    {% if sugestoes %}
+        <ul>
+            {% for s in sugestoes %}
+                <li>
+                    <strong>Título:</strong> {{ s.titulo }} <br>
+                    <strong>Descrição:</strong> {{ s.descricao }} <br>
+                    <strong>Autor:</strong> {{ s.autor.nome if s.autor else "Anônimo" }}
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma sugestão enviada ainda.</p>
+    {% endif %}
+
 </div>
 {% endblock %}

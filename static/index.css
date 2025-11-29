@@ -18,7 +18,7 @@ body {
 h1 {
     font-size: 2.3rem;
     margin-bottom: 10px;
-    color: #03643B;
+    color: #0f6f29;
 }
 
 p {
@@ -44,17 +44,17 @@ p {
 }
 
 .btn-login {
-    background: #03643B;
+    background: #0f6f29;
 }
 
 .btn-login:hover {
-    background: #024d2d;
+    background: #0b5b20;
 }
 
 .btn-register {
-    background: #008B4A;
+    background: #0f6f29;
 }
 
 .btn-register:hover {
-    background: #006f3a;
+    background: #0b5b20;
 }

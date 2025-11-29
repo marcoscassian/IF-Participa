@@ -1,13 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user
+from flask_login import login_user, login_required, current_user, logout_user
 from models.database import SessionLocal
 from models.users import Usuario
 
 auth_bp = Blueprint('auth_bp', __name__, url_prefix='/auth')
 
 
-# --- PÁGINA DE CADASTRO ---
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -17,18 +16,16 @@ def register():
 
         db = SessionLocal()
 
-        # Verifica se o email já existe
         existente = db.query(Usuario).filter_by(email=email).first()
         if existente:
             flash("E-mail já registrado!", "danger")
             db.close()
             return redirect(url_for('auth_bp.register'))
 
-        # CRIA o usuário
         novo = Usuario(
             nome=nome,
             email=email,
-            senha_hash=generate_password_hash(senha)  # ← CORRETO!
+            senha_hash=generate_password_hash(senha) 
         )
 
         db.add(novo)
@@ -40,8 +37,6 @@ def register():
 
     return render_template('register.html')
 
-
-# --- PÁGINA DE LOGIN ---
 from flask_login import login_user
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
@@ -71,3 +66,13 @@ def login():
 
     return render_template('login.html')
 
+@auth_bp.route("/perfil")
+@login_required
+def perfil():
+    return render_template("perfil.html", usuario=current_user)
+
+@auth_bp.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("auth_bp.login"))

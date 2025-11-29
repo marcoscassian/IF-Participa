@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Enviar Sugestão{% endblock %}
+
+{% block conteudo %}
+<h1>Enviar Sugestão</h1>
+
+<form method="POST">
+    <label>Título:</label><br>
+    <input type="text" name="titulo" required><br><br>
+
+    <label>Descrição:</label><br>
+    <textarea name="descricao" rows="5" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+{% endblock %}
