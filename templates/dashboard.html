@@ -1,52 +1,53 @@
 {% extends "base.html" %}
 
 {% block title %}Dashboard - IF Participa{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+{% endblock %}
 
 {% block conteudo %}
 <div class="dashboard">
 
-    <h1>Bem-vindo, {{ usuario.nome }}!</h1>
-    <a href="{{ url_for('controllers_bp.enviar_sugestao') }}">Enviar Sugestão</a>
-    <a href="{{ url_for('controllers_bp.enviar_reclamacao') }}">Enviar Reclamação</a>
-    <p>Aqui estão as reclamações e sugestões enviadas pela comunidade.</p>
+    <div class="topo-dashboard">
+        <h1>Bem-vindo, {{ usuario.nome }}!</h1>
 
-    <hr>
+        <div class="acoes">
+            <a class="botao" href="{{ url_for('controllers_bp.enviar_reclamacao') }}">Enviar Reclamação</a>
+            <a class="botao" href="{{ url_for('controllers_bp.enviar_sugestao') }}">Enviar Sugestão</a>
+        </div>
 
-    <h2>Reclamações</h2>
+        <p>Aqui estão as reclamações e sugestões enviadas pela comunidade.</p>
+    </div>
 
-    {% if reclamacoes %}
-        <ul>
-            {% for r in reclamacoes %}
-                <li>
-                    <strong>Título:</strong> {{ r.titulo }} <br>
-                    <strong>Descrição:</strong> {{ r.descricao }} <br>
-                    <strong>Autor:</strong> {{ r.autor.nome if r.autor else "Anônimo" }}
-                    <hr>
+    <div class="quadros">
+
+        <div class="quadro">
+            <h2>Reclamações</h2>
+            <ul>
+                {% for r in reclamacoes %}
+                <li class="item">
+                    <strong>{{ r.titulo }}</strong><br>
+                    {{ r.descricao }}<br>
+                    <span class="autor">{{ r.autor.nome }}</span>
                 </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Nenhuma reclamação enviada ainda.</p>
-    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
 
-    <br>
-
-    <h2>Sugestões</h2>
-
-    {% if sugestoes %}
-        <ul>
-            {% for s in sugestoes %}
-                <li>
-                    <strong>Título:</strong> {{ s.titulo }} <br>
-                    <strong>Descrição:</strong> {{ s.descricao }} <br>
-                    <strong>Autor:</strong> {{ s.autor.nome if s.autor else "Anônimo" }}
-                    <hr>
+        <div class="quadro">
+            <h2>Sugestões</h2>
+            <ul>
+                {% for s in sugestoes %}
+                <li class="item">
+                    <strong>{{ s.titulo }}</strong><br>
+                    {{ s.descricao }}<br>
+                    <span class="autor">{{ s.autor.nome }}</span>
                 </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Nenhuma sugestão enviada ainda.</p>
-    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
 
+    </div>
 </div>
+
 {% endblock %}

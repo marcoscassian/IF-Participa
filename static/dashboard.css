@@ -1,0 +1,87 @@
+.dashboard {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.topo-dashboard {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.topo-dashboard h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.topo-dashboard .acoes {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.botao {
+    padding: 10px 16px;
+    background: #0f6f29;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.botao:hover {
+    background: #0c541f;
+}
+
+.topo-dashboard p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.quadros {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.quadro {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.quadro h2 {
+    margin-bottom: 15px;
+    color: #0f6f29;
+}
+
+.quadro ul {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    background: #f3f3f3;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border-left: 4px solid #0f6f29;
+}
+
+.item strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.autor {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #555;
+}
