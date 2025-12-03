@@ -4,9 +4,10 @@ from flask_login import login_user, login_required, current_user, logout_user
 from models.database import SessionLocal
 from models.users import Usuario
 
+#blueprint de autenticação
 auth_bp = Blueprint('auth_bp', __name__, url_prefix='/auth')
 
-
+#registro de usuário
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -16,16 +17,18 @@ def register():
 
         db = SessionLocal()
 
+        #verifica se e-mail já existe
         existente = db.query(Usuario).filter_by(email=email).first()
         if existente:
             flash("E-mail já registrado!", "danger")
             db.close()
             return redirect(url_for('auth_bp.register'))
 
+        #cria novo usuário com senha criptografada
         novo = Usuario(
             nome=nome,
             email=email,
-            senha_hash=generate_password_hash(senha) 
+            senha_hash=generate_password_hash(senha)
         )
 
         db.add(novo)
@@ -37,8 +40,7 @@ def register():
 
     return render_template('register.html')
 
-from flask_login import login_user
-
+#login
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -48,16 +50,19 @@ def login():
         db = SessionLocal()
         usuario = db.query(Usuario).filter_by(email=email).first()
 
+        #se o usuário não foi encontrado
         if not usuario:
             flash("Usuário não encontrado!", "danger")
             db.close()
             return redirect(url_for('auth_bp.login'))
 
+        #se a senha estiver errada
         if not check_password_hash(usuario.senha_hash, senha):
             flash("Senha incorreta!", "danger")
             db.close()
             return redirect(url_for('auth_bp.login'))
 
+        #login do usuário
         login_user(usuario)
 
         flash("Login realizado!", "success")
@@ -66,6 +71,7 @@ def login():
 
     return render_template('login.html')
 
+#logout
 @auth_bp.route("/logout")
 @login_required
 def logout():

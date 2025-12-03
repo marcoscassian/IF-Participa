@@ -4,8 +4,10 @@ from models.reclamacoes import Reclamacao
 from models.sugestoes import Sugestao
 from models.database import db_session, SessionLocal
 
+#blueprint de rotas gerais do sistema
 controllers_bp = Blueprint("controllers_bp", __name__)
 
+#página principal do usuário logado
 @controllers_bp.route("/dashboard")
 @login_required
 def dashboard():
@@ -19,51 +21,43 @@ def dashboard():
         sugestoes=sugestoes
     )
 
+#enviar sugestão
 @controllers_bp.route("/enviar-sugestao", methods=["GET", "POST"])
 @login_required
 def enviar_sugestao():
     if request.method == "POST":
-        titulo = request.form["titulo"]
-        descricao = request.form["descricao"]
-
         nova = Sugestao(
-            titulo=titulo,
-            descricao=descricao,
+            titulo=request.form["titulo"],
+            descricao=request.form["descricao"],
             autor_id=current_user.id
         )
-
         db_session.add(nova)
         db_session.commit()
-
         return redirect(url_for("controllers_bp.dashboard"))
 
     return render_template("enviar_sugestao.html")
 
+#enviar reclamação
 @controllers_bp.route("/enviar-reclamacao", methods=["GET", "POST"])
 @login_required
 def enviar_reclamacao():
     if request.method == "POST":
-        titulo = request.form["titulo"]
-        descricao = request.form["descricao"]
-
         nova = Reclamacao(
-            titulo=titulo,
-            descricao=descricao,
+            titulo=request.form["titulo"],
+            descricao=request.form["descricao"],
             autor_id=current_user.id
         )
-
         db_session.add(nova)
         db_session.commit()
-
         return redirect(url_for("controllers_bp.dashboard"))
 
     return render_template("enviar_reclamacao.html")
 
+#página de perfil do usuário
 @controllers_bp.route("/meu-perfil")
 @login_required
 def meu_perfil():
     db = SessionLocal()
-
     minhas_reclamacoes = db.query(Reclamacao).filter_by(autor_id=current_user.id).all()
     minhas_sugestoes = db.query(Sugestao).filter_by(autor_id=current_user.id).all()
 
@@ -74,6 +68,7 @@ def meu_perfil():
         sugestoes=minhas_sugestoes
     )
 
+#excluir reclamação
 @controllers_bp.route("/reclamacao/<int:id>/excluir")
 @login_required
 def excluir_reclamacao(id):
@@ -89,6 +84,7 @@ def excluir_reclamacao(id):
     flash("Reclamação excluída com sucesso.")
     return redirect(url_for("controllers_bp.meu_perfil"))
 
+#excluir sugestão
 @controllers_bp.route("/sugestao/<int:id>/excluir")
 @login_required
 def excluir_sugestao(id):
@@ -104,6 +100,7 @@ def excluir_sugestao(id):
     flash("Sugestão excluída com sucesso.")
     return redirect(url_for("controllers_bp.meu_perfil"))
 
+#editar reclamação
 @controllers_bp.route("/reclamacao/<int:id>/editar", methods=["GET", "POST"])
 @login_required
 def editar_reclamacao(id):
@@ -123,6 +120,7 @@ def editar_reclamacao(id):
 
     return render_template("editar_reclamacao.html", reclamacao=rec)
 
+#editar sugestão
 @controllers_bp.route("/sugestao/<int:id>/editar", methods=["GET", "POST"])
 @login_required
 def editar_sugestao(id):
@@ -142,6 +140,7 @@ def editar_sugestao(id):
 
     return render_template("editar_sugestao.html", sugestao=sug)
 
+#página "Sobre"
 @controllers_bp.route("/sobre", methods=["GET", "POST"])
 @login_required
 def sobre():

@@ -11,6 +11,7 @@ db_session = SessionLocal
 
 Base = declarative_base()
 
+#criacão do banco
 def get_db():
     db = SessionLocal()
     try:
