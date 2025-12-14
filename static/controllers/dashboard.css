@@ -6,21 +6,51 @@
     font-family: Arial, sans-serif;
 }
 
+/* TOPO VERDE MODERNO */
 .topo-dashboard {
+    background: #0f6f29;
+    padding: 40px 30px;
+    border-radius: 18px;
+    color: white;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
+/* TÍTULO E TEXTO NO TOPO */
 .topo-dashboard h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: 700;
 }
 
+.topo-dashboard p {
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+/* BOTÕES BRANCOS */
 .topo-dashboard .acoes {
-    margin-bottom: 20px;
+    margin: 26px 0 18px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.topo-dashboard .botao {
+    background: white;
+    color: #0f6f29;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.topo-dashboard .botao:hover {
+    background: #e8f4ed;
+    transform: translateY(-2px);
 }
 
 .botao {

@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IF-Participa</title>
     <link rel="stylesheet" href="static/index.css">
-
 </head>
 <body>
 
-    <div class="container">
-        <h1>IF-Participa</h1>
-        <p>Participe ativamente do futuro do IFRN!  
-        Envie ideias, reclamações e contribua com sugestões.</p>
+    <main class="hero">
+        <div class="container">
 
-        <div class="btn-container">
-            <a href="{{ url_for('auth_bp.register') }}" class="btn btn-register">Cadastrar-se</a>
-            <a href="{{ url_for('auth_bp.login') }}" class="btn btn-login">Fazer Login</a>
+            <h1>IF-Participa</h1>
+
+            <p>
+                Um espaço para ouvir, dialogar e melhorar.  
+                Envie sugestões, reclamações e contribua com o futuro do IFRN.
+            </p>
+
+            <div class="btn-container">
+                <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">
+                    Criar conta
+                </a>
+                <a href="{{ url_for('auth_bp.login') }}" class="btn btn-secondary">
+                    Entrar
+                </a>
+            </div>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>

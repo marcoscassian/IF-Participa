@@ -25,8 +25,8 @@
                 <strong>{{ r.titulo }}</strong><br>
                 {{ r.descricao }}
                 <div class="acoes">
-                    <a class="editar" href="{{ url_for('controllers_bp.editar_reclamacao', id=r.id) }}">Editar</a>
-                    <a class="excluir" href="{{ url_for('controllers_bp.excluir_reclamacao', id=r.id) }}">Excluir</a>
+                    <a class="editar" href="{{ url_for('reclamacoes_bp.editar_reclamacao', id=r.id) }}">Editar</a>
+                    <a class="excluir" href="{{ url_for('reclamacoes_bp.excluir_reclamacao', id=r.id) }}">Excluir</a>
                 </div>
             </li>
         {% endfor %}
@@ -43,8 +43,8 @@
                 <strong>{{ s.titulo }}</strong><br>
                 {{ s.descricao }}
                 <div class="acoes">
-                    <a class="editar" href="{{ url_for('controllers_bp.editar_sugestao', id=s.id) }}">Editar</a>
-                    <a class="excluir" href="{{ url_for('controllers_bp.excluir_sugestao', id=s.id) }}">Excluir</a>
+                    <a class="editar" href="{{ url_for('sugestoes_bp.editar_sugestao', id=s.id) }}">Editar</a>
+                    <a class="excluir" href="{{ url_for('sugestoes_bp.excluir_sugestao', id=s.id) }}">Excluir</a>
                 </div>
             </li>
         {% endfor %}

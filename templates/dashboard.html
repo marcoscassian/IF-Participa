@@ -12,8 +12,8 @@
         <h1>Bem-vindo, {{ usuario.nome }}!</h1>
 
         <div class="acoes">
-            <a class="botao" href="{{ url_for('controllers_bp.enviar_reclamacao') }}">Enviar Reclamação</a>
-            <a class="botao" href="{{ url_for('controllers_bp.enviar_sugestao') }}">Enviar Sugestão</a>
+            <a class="botao" href="{{ url_for('reclamacoes_bp.enviar_reclamacao') }}">Enviar Reclamação</a>
+            <a class="botao" href="{{ url_for('sugestoes_bp.enviar_sugestao') }}">Enviar Sugestão</a>
         </div>
 
         <p>Aqui estão as reclamações e sugestões enviadas pela comunidade.</p>

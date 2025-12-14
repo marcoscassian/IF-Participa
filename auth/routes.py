@@ -38,7 +38,7 @@ def register():
         flash("Conta criada com sucesso!", "success")
         return redirect(url_for('auth_bp.login'))
 
-    return render_template('register.html')
+    return render_template('auth/register.html')
 
 #login
 @auth_bp.route('/login', methods=['GET', 'POST'])
@@ -69,7 +69,7 @@ def login():
         db.close()
         return redirect(url_for('controllers_bp.dashboard'))
 
-    return render_template('login.html')
+    return render_template('auth/login.html')
 
 #logout
 @auth_bp.route("/logout")

@@ -1,60 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f6f29, #0b5b20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .container {
-    max-width: 600px;
-    margin: 10vh auto;
+    max-width: 560px;
+    background: #ffffff;
+    padding: 48px 40px;
+    border-radius: 20px;
     text-align: center;
-    padding: 40px 30px;
-    background: white;
-    border-radius: 18px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.badge {
+    display: inline-block;
+    background: #e8f4ed;
+    color: #0f6f29;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 18px;
 }
 
 h1 {
-    font-size: 2.3rem;
-    margin-bottom: 10px;
+    font-size: 2.6rem;
+    margin-bottom: 12px;
     color: #0f6f29;
 }
 
 p {
     font-size: 1.05rem;
-    margin-bottom: 35px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 38px;
 }
 
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 .btn {
-    padding: 14px 28px;
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.2s ease;
+    padding: 14px 30px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
     text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: #0f6f29;
     color: white;
+    box-shadow: 0 8px 18px rgba(15, 111, 41, 0.35);
 }
 
-.btn-login {
-    background: #0f6f29;
-}
-
-.btn-login:hover {
+.btn-primary:hover {
     background: #0b5b20;
+    transform: translateY(-2px);
 }
 
-.btn-register {
-    background: #0f6f29;
+.btn-secondary {
+    background: white;
+    color: #0f6f29;
+    border: 2px solid #0f6f29;
 }
 
-.btn-register:hover {
-    background: #0b5b20;
+.btn-secondary:hover {
+    background: #e8f4ed;
+    transform: translateY(-2px);
 }

@@ -1,40 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
 .sobre-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    max-width: 860px;
+    margin: 60px auto;
+    padding: 48px 40px;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 16px 35px rgba(0,0,0,0.08);
 }
 
 .sobre-container h1 {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 32px;
     color: #0f6f29;
+    font-size: 2.4rem;
+    font-weight: 700;
 }
 
 .sobre-container h2 {
-    margin-top: 25px;
+    margin-top: 36px;
+    margin-bottom: 12px;
     color: #0f6f29;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-left: 4px solid #0f6f29;
+    padding-left: 10px;
+}
+
+.sobre-container p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
 }
 
 .intro {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #333;
 }
 
 .equipe {
-    list-style: square;
-    margin-top: 10px;
-    margin-left: 20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
 }
 
 .equipe li {
-    margin-bottom: 5px;
-    font-weight: bold;
+    background: #e8f4ed;
+    color: #0f6f29;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
 }
 
 .curso {
-    margin-top: 20px;
+    margin-top: 30px;
     font-style: italic;
-    color: #444;
+    color: #555;
     text-align: center;
 }
