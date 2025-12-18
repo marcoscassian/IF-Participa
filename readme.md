@@ -77,3 +77,7 @@ python app.py
 
 **Alex, Bruno, Isaac e Marcos**
 Informática – Turma **1M (2023)** – IFRN
+
+### **Canva**
+
+https://www.canva.com/design/DAGvsOnVDMk/4vmpxfZMDT8iBbfwFK5IEQ/edit
